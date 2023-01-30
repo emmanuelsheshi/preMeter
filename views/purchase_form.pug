@@ -1,0 +1,20 @@
+extends layout
+block content
+    div.form_container   
+     
+        form.form(action="/create-checkout-session2",method="POST")         
+            h1.formtitle Smart Meter Recharge  
+            img(src="images/shop3.webp", alt="shopIcon" style="width:50px; height:50px")
+            label Meter Number
+            input.in_meterId(placeholder="meter id" name="meterId" type="text"  required="true" value="312334334343") 
+            br
+            label Phone Number
+            input.in_phone(placeholder="phone number" name="phone" type="tel" required="true" value="09063699411") 
+            br   
+            label Amount (N)
+            input.in_amount(placeholder="amount" name="amount" type="number"     required="true" value="600" ) 
+            br
+            button(prev) Recharge
+            p.formfooter powered by syncronia systems
+
+    
