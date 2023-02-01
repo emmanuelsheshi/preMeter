@@ -3,6 +3,8 @@ var router = express.Router()
 var harshGen = require('../controllers/harshGeneration')
 var unHarsh = require('../controllers/harshDecription')
 var sendMsg = require('../controllers/sendingSms')
+var sendFx = require('../controllers/sendToThingsSpeak')
+
 const url = require('url')
 const path = require('path')
 
@@ -22,6 +24,7 @@ router.get('/', function (req, res, next) {
   console.log('Generated Harsh - ', result)
   //send harsh to phone number here
   sendMsg(result)
+  sendFx(currentAmount)
 
   console.log(result2)
   res.redirect('/purchase')

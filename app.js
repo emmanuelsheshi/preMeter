@@ -11,6 +11,9 @@ var harshRouter = require('./routes/harsh')
 var bodyParser = require('body-parser')
 var app = express()
 
+const dotenv = require('dotenv')
+dotenv.config()
+
 const stripe = require('stripe')(
   'sk_test_51MV1RaArfjBctNtXLlJqdma9eXpEiIFmyJU5PvEQHW3DX8uHc1x0eZGupJH3Cb0KFRFvwNyaUlPJ7SUXkIDS4ltK000j9U5x6I',
 )
@@ -58,8 +61,8 @@ app.post('/create-checkout-session2', async (req, res, next) => {
         },
       ],
 
-      success_url: `http://localhost:3000/harsh?meterId=${purchaseInfo.meterId}&priceId=${purchaseInfo.amount}`,
-      cancel_url: 'http://localhost:3000/cancel',
+      success_url: `${process.env.API_URL}/harsh?meterId=${purchaseInfo.meterId}&priceId=${purchaseInfo.amount}`,
+      cancel_url: `${process.env.API_URL}/cancel`,
     })
     res.json({ url: session.url })
   } catch (e) {
