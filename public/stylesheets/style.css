@@ -13,18 +13,26 @@ body {
 }
 
 .form_container {
-  min-width: 22%;
+  width: 400px;
+  min-width: 40%;
+
+  height: 90%;
+  opacity: 0.95;
+  /* position: absolute;
+  right: 2%; */
+
+  /* background-color: black; */
 }
 
 form {
-  padding: 10px;
+  height: 100%;
 
   border-radius: 5px;
   /* border: solid 1px #ccc; */
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
   background: #ffffff;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   gap: 10px;
@@ -32,25 +40,28 @@ form {
 
 input {
   width: 80%;
-  height: 33px;
+  height: 50px;
   padding-left: 10px;
   border-radius: 10px;
   border: solid 1px #cbc9c9;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
   background: #fff;
+  /* font-weight: bold; */
+  font-size: 1.1em;
 }
 
 button {
-  width: 40%;
-  height: 45px;
+  width: 80%;
+  height: 55px;
   padding: 10px 0;
 
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
   background: #1c87c9;
   font-size: 14px;
   font-weight: 600;
   color: #fff;
+  margin-top: 3%;
 }
 
 button:hover {
@@ -58,9 +69,114 @@ button:hover {
 }
 
 .formtitle {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  padding: 10px;
+  position: relative;
+  font-weight: lighter;
+  top: 2%;
+  color: #0a4e78;
 }
+
+.cartImg {
+  position: relative;
+}
+label {
+  color: #a19c9c;
+}
+
+.smartComponent {
+  /* background: yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: xx-large;
+  color: #0a4e78;
+
+  padding: 2%;
+
+  /* top: -5%; */
+}
+
 .formfooter {
   font-size: xx-small;
+  position: relative;
+  margin-top: 15%;
 }
+
+.info {
+  font-size: xx-small;
+  position: relative;
+
+  width: 100%;
+}
+ul {
+  display: flex;
+  gap: 5%;
+  list-style: inside;
+
+  justify-content: center;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* begining of media query . */
+
+@media (max-width: 720px) {
+  body {
+    background-color: #01080d;
+  }
+  .form_container {
+    width: 98%;
+
+    height: 99%;
+    opacity: 0.95;
+    position: relative;
+
+    /* background-color: black; */
+  }
+
+  form {
+    height: 100%;
+    width: 100%;
+
+    border-radius: 5px;
+    /* border: solid 1px #ccc; */
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
+    background: #ffffff;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input {
+    width: 95%;
+    height: 45px;
+    padding-left: 10px;
+    border-radius: 8px;
+    border: solid 1px #cbc9c9;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
+    background: #fff;
+
+    font-weight: lighter;
+    font-size: larger;
+  }
+
+  button {
+    width: 95%;
+    height: 55px;
+    padding: 10px 0;
+    margin-top: 5%;
+
+    border-radius: 8px;
+    border: none;
+    background: #1c87c9;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  button:hover {
+    background: #26a9e0;
+  }
+}
+/* end of media query for phone  */

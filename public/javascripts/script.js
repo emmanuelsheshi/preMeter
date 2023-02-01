@@ -29,3 +29,15 @@ form.addEventListener('submit', (event) => {
       console.error(e.error)
     })
 })
+
+// some resposes
+const smartConponentVal = document.querySelector('.units')
+const amountInput = document.querySelector('.in_amount')
+
+amountInput.addEventListener('input', (event) => {
+  let updateVal = event.target.value
+  let conveterdUnits = updateVal / 80
+  // console.log(updateVal, 'heeleoe')
+
+  smartConponentVal.textContent = conveterdUnits.toFixed(1)
+})
