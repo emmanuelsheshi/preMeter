@@ -1,5 +1,5 @@
 const accountSid = 'ACe6b7143e781d62a6698180f55e374b4b'
-const authToken = '1b07db6b8707e9db4b0ba3eca2243832'
+const authToken = '3b2576209c749378e937d547c6138204'
 const client = require('twilio')(accountSid, authToken)
 
 function sendMsg(message) {
@@ -10,6 +10,7 @@ function sendMsg(message) {
       to: '+2349063699411',
     })
     .then((message) => console.log('message sent'))
+    .catch((err) => console.log('message not send beacuse of', err))
 }
 
 module.exports = sendMsg

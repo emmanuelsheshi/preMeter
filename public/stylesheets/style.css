@@ -19,7 +19,7 @@ body {
   min-width: 40%;
 
   height: 90%;
-  opacity: 0.95;
+  /* opacity: 0.95; */
   /* position: absolute;
   right: 2%; */
 
@@ -128,7 +128,7 @@ ul {
     width: 98%;
 
     height: 99%;
-    opacity: 0.95;
+    /* opacity: 0.95; */
     position: relative;
 
     /* background-color: black; */
