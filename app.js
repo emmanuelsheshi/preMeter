@@ -72,6 +72,20 @@ app.post('/create-checkout-session2', async (req, res, next) => {
   }
 })
 
+app.use('/webhooks', (req, res, next) => {
+  const event = req.body
+
+  switch (event.type) {
+    case 'payment_intent.succeeded':
+      console.log('Payment intent succeded')
+
+      break
+
+    default:
+      console.log(`Unhandled event type ${event.type}`)
+  }
+})
+
 app.use('/harsh', harshRouter)
 
 app.use('/success', (req, res) => {
