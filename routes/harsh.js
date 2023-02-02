@@ -27,7 +27,8 @@ router.get('/', function (req, res, next) {
   sendFx(currentAmount)
 
   console.log(result2)
-  console.log('sucessfull purchase')
+  // console.log('sucessfull purchase')
+  res.render('sucessfull purchase')
   // res.redirect('/purchase')
 })
 
