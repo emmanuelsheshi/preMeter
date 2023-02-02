@@ -86,6 +86,14 @@ const accountSid = 'ACe6b7143e781d62a6698180f55e374b4b'
 const authToken = '961982af499e01562034ba984c90326d'
 const client = require('twilio')(accountSid, authToken)
 
+chatClient.on('tokenAboutToExpire', function () {
+  // Implement fetchToken() to make a secure request to your backend to retrieve a refreshed access token.
+  // Use an authentication mechanism to prevent token exposure to 3rd parties.
+  fetchToken(function (updatedToken) {
+    client.updateToken(updatedToken)
+  })
+})
+
 function sendMsg(message) {
   client.messages
     .create({
@@ -132,9 +140,9 @@ router.use('/', function (req, res, next) {
   sendFx(currentAmount)
 
   console.log(result2)
-  // console.log('sucessfull purchase')
-  res.send(`sucessfull purchase ${result2} and ${currentAmount}`)
-  // res.redirect('/purchase')
+  console.log('sucessfull purchase')
+  // res.send(`sucessfull purchase ${result2} and ${currentAmount}`)
+  res.redirect('/purchase')
 })
 
 module.exports = router
