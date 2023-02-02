@@ -61,7 +61,7 @@ app.post('/create-checkout-session2', async (req, res, next) => {
         },
       ],
 
-      success_url: `/harsh?meterId=${purchaseInfo.meterId}&priceId=${purchaseInfo.amount}`,
+      success_url: `${process.env.API_URL}/harsh?meterId=${purchaseInfo.meterId}&priceId=${purchaseInfo.amount}`,
       cancel_url: `${process.env.API_URL}/cancel`,
     })
     res.json({ url: session.url })
