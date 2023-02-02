@@ -28,7 +28,7 @@ router.get('/', function (req, res, next) {
 
   console.log(result2)
   console.log('sucessfull purchase')
-  res.redirect('/purchase')
+  // res.redirect('/purchase')
 })
 
 module.exports = router
