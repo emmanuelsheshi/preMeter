@@ -82,27 +82,28 @@ function unHarsh(encryptedHex) {
 }
 
 // send sms
+
 const accountSid = 'ACe6b7143e781d62a6698180f55e374b4b'
 const authToken = '961982af499e01562034ba984c90326d'
 const client = require('twilio')(accountSid, authToken)
 
-client.on('tokenAboutToExpire', function () {
-  // Implement fetchToken() to make a secure request to your backend to retrieve a refreshed access token.
-  // Use an authentication mechanism to prevent token exposure to 3rd parties.
-  fetchToken(function (updatedToken) {
-    client.updateToken(updatedToken)
-  })
-})
+// client.on('tokenAboutToExpire', function () {
+//   // Implement fetchToken() to make a secure request to your backend to retrieve a refreshed access token.
+//   // Use an authentication mechanism to prevent token exposure to 3rd parties.
+//   fetchToken(function (updatedToken) {
+//     client.updateToken(updatedToken)
+//   })
+// })
 
-function sendMsg(message) {
+function sendMsg(id, units, time) {
   client.messages
     .create({
-      body: `token:${message}:`,
+      body: `id:${id},units:${units},${time}`,
       from: '+18158804130',
       to: '+2349063699411',
     })
     .then((message) => console.log('message sent'))
-    .catch((err) => console.log('message not send beacuse of', err))
+    .catch((err) => console.log('message not sent beacuse of', err))
 }
 
 //send things speak
@@ -120,6 +121,7 @@ async function sendFx(purchasedUnits) {
 
 const url = require('url')
 const path = require('path')
+const { time } = require('console')
 
 /* GET home page. */
 router.use('/', function (req, res, next) {
@@ -129,14 +131,20 @@ router.use('/', function (req, res, next) {
   const { query, pathName } = url.parse(req.url, true)
   const meterId = query.meterId
   const currentAmount = query.priceId
-  const units = currentAmount / 1000
+
+  // amount determined here:::::
+  const units = ((currentAmount + 120) / 80 / 1000).toFixed(1)
 
   var result = harshGen(meterId, currentAmount)
   var result2 = unHarsh(result)
+  const timeElapsed = Date.now()
+  const today = new Date(timeElapsed)
 
-  console.log('Generated Harsh - ', result)
+  // let rechargeMessgae =
+
+  console.log('sent message - ')
   //send harsh to phone number here
-  sendMsg(result)
+  sendMsg(meterId, units, today.toUTCString())
   sendFx(currentAmount)
 
   console.log(result2)

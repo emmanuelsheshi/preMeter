@@ -53,7 +53,7 @@ app.post('/create-checkout-session2', async (req, res, next) => {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: 'units',
+              name: `amount with a $${service_charge} service charge`,
             },
             unit_amount: newAmout * 100,
           },

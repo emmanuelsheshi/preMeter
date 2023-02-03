@@ -7,7 +7,7 @@ block content
            
             div.smartComponent
                 img.cartImg(src="images/shop3.webp", alt="shopIcon" style="width:50px; height:50px;")
-                span.units 0.0
+                span.units 7.5
                 span(style='padding-left:5px; font-size:small; margin-bottom:5px' )  units
             label Meter Number
             input.in_meterId(placeholder="meter id" name="meterId" type="text"  required="true" value="2021286") 
@@ -16,9 +16,11 @@ block content
             input.in_phone(placeholder="phone number" name="phone" type="tel" required="true" value="09063699411") 
             br   
             label Amount (N)
-            input.in_amount(placeholder="amount" name="amount" type="number"     required="true" value="600" ) 
+            label.error
+            input.in_amount(placeholder="amount" name="amount" type="number"  required="true" value="600" ) 
             br
-            button(prev) Recharge
+          
+            button.submit Recharge
             div.formfooter 
                 em Supervised by :  
                 b Dr Emmanuel Eronu

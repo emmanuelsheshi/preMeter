@@ -119,6 +119,13 @@ ul {
   padding-right: 5%;
 }
 
+.error {
+  position: relative;
+  font-size: xx-small;
+  font-style: italic;
+  color: red;
+}
+
 /* begining of media query . */
 
 @media (max-width: 720px) {
