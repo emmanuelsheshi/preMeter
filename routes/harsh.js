@@ -108,8 +108,14 @@ function sendMsg(id, units, time) {
 
 //send things speak
 async function sendFx(purchasedUnits) {
+  const rechargeTime = new Date()
+  let randomGen = Math.random(0, 1)
+  let randValue = parseFloat(purchasedUnits)
+  let ans = randValue + randomGen
+  console.log(randValue, purchasedUnits, randomGen)
+  console.log(typeof randomGen, ' -- ', ans)
   let response = await fetch(
-    `https://api.thingspeak.com/update?api_key=R8OEY6N3F53WWTYC&field1=${purchasedUnits}`,
+    `https://api.thingspeak.com/update?api_key=R8OEY6N3F53WWTYC&field1=${randValue}&field2=${rechargeTime.toISOString()}`,
   )
   try {
     let data = await response.text()
@@ -132,7 +138,7 @@ router.use('/', function (req, res, next) {
   const meterId = query.meterId
   const currentAmount = query.priceId
 
-  // amount determined here:::::
+  // price per unit  determined here:::::
   const units = ((currentAmount + 120) / 80 / 1000).toFixed(1)
 
   var result = harshGen(meterId, currentAmount)
@@ -144,8 +150,8 @@ router.use('/', function (req, res, next) {
 
   console.log('sent message - ')
   //send harsh to phone number here
-  sendMsg(meterId, units, today.toUTCString())
-  sendFx(currentAmount)
+  // sendMsg(meterId, amount, today.toUTCString())
+  sendFx(units)
 
   console.log(result2)
   console.log('sucessfull purchase')
