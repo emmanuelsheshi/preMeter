@@ -8,7 +8,10 @@ var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
 var purchaseRouter = require('./routes/purchase')
 var harshRouter = require('./routes/harsh')
+var energyMonitorRouter = require('./routes/energyMonitor')
+
 var bodyParser = require('body-parser')
+
 var app = express()
 
 const dotenv = require('dotenv')
@@ -33,6 +36,8 @@ app.use('/', indexRouter)
 app.use('/users', usersRouter)
 
 app.use('/purchase', purchaseRouter)
+
+app.use('/energyMonitor', energyMonitorRouter)
 
 app.post('/create-checkout-session2', async (req, res, next) => {
   const service_charge = 120

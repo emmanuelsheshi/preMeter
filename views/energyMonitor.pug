@@ -1,0 +1,59 @@
+extends layout
+block content    
+    div.form_container                   
+        div.form  
+            
+            h1.formtitle Energy Monitor   
+            a(href="/purchase")                
+                img.meterPurchase.back.var.animate__animated.animate__headShake.animate__infinite.animate__slow(src="images/pay.png", alt="buy units" style="width:50px; height:50px;")     
+
+             
+            label.meterNumber Meter ID : 2021286
+
+            div.voltage.var #{voltage}
+                //- label  Volts        
+        
+            div.current.animate__animated.animate__headShake.animate__infinite.animate__slower.var #{current}
+                label
+            
+            div.power.var #{power} 
+                label 
+
+            
+            div.availableUnits.var #{unitsNow} 
+                label Units
+
+            div.legend
+                    div.legend1             
+                        div.box.blue 
+                        div volts 
+                    
+                    div.legend2             
+                        div.box.red 
+                        div amps 
+                    div.legend2             
+                        div.box.orange 
+                        div watts 
+                    
+                 
+            
+            
+        
+        
+          
+            button.control on
+          
+    
+            div.formfooter 
+                em Supervised by :  
+                b Dr Emmanuel Eronu
+           
+            div.info
+                ul
+                    li Adamu Thomas DAVURUK 
+                    li Udo Ini Raphel 
+                    li Izuagie Martins Imoitsike 
+                    li Omojola Lanre Bukola
+                
+
+    

@@ -1,6 +1,7 @@
 console.log('connected')
 const form = document.querySelector('.form')
 const submit_button = document.querySelector('.submit')
+
 //values
 
 form.addEventListener('submit', (event) => {

@@ -26,7 +26,7 @@ body {
   /* background-color: black; */
 }
 
-form {
+.form {
   height: 100%;
 
   border-radius: 5px;
@@ -53,8 +53,8 @@ input {
 }
 
 button {
-  width: 80%;
-  height: 55px;
+  width: 50%;
+  height: 60px;
   padding: 10px 0;
 
   border-radius: 10px;
@@ -126,11 +126,247 @@ ul {
   color: red;
 }
 
+.voltage {
+  background: #0a4e78;
+  width: 22%;
+  height: 20%;
+  /* border-radius: 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 58% 43% 33% 64% / 50% 38% 53% 50%;
+  background: transparent;
+  box-shadow: inset 6px 33px 20px 0 #0a4e7869, inset 20px 80px 15px 0 #e0e0e0,
+    10px 20px 20px 0px #c9c9c9;
+}
+.voltage::before {
+  content: '';
+  position: absolute;
+  border-radius: 37% 54% 46% 46%;
+  background: white;
+  width: 50px;
+  transform: rotate(-30deg);
+  height: 15px;
+  top: 20px;
+  left: 20px;
+}
+
+.voltage::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  width: 10px;
+  height: 10px;
+  top: 60px;
+  left: 20px;
+}
+
+.current {
+  background: #0a4e78;
+  width: 20%;
+  height: 18%;
+  /* border-radius: 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+  position: relative;
+  left: 8%;
+  height: 120px;
+  width: 120px;
+  border-radius: 58% 43% 33% 64% / 50% 38% 53% 50%;
+  background: transparent;
+  box-shadow: inset 6px 33px 20px 0 #b407078f, inset 20px 80px 15px 0 #e0e0e0,
+    10px 20px 20px 0px #c9c9c9;
+}
+.current::before {
+  content: '';
+  position: absolute;
+  border-radius: 37% 54% 46% 46%;
+  background: white;
+  width: 50px;
+  transform: rotate(-30deg);
+  height: 15px;
+  top: 20px;
+  left: 20px;
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  width: 10px;
+  height: 10px;
+  top: 60px;
+  left: 20px;
+}
+
+.power {
+  background: #0a4e78;
+  width: 22%;
+  height: 20%;
+  /* border-radius: 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  font-size: 2em;
+
+  position: relative;
+  left: -7%;
+  top: -5%;
+  height: 100px;
+  width: 100px;
+  border-radius: 58% 43% 33% 64% / 50% 38% 53% 50%;
+  background: transparent;
+  box-shadow: inset 6px 33px 20px 0 #ff840069, inset 20px 80px 15px 0 #e0e0e0,
+    10px 20px 20px 0px #c9c9c9;
+}
+.power::before {
+  content: '';
+  position: absolute;
+  border-radius: 37% 54% 46% 46%;
+  background: rgba(255, 255, 255, 0.547);
+  width: 50px;
+  transform: rotate(-30deg);
+  height: 15px;
+  top: 20px;
+  left: 20px;
+}
+
+.power::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  width: 10px;
+  height: 10px;
+  top: 60px;
+  left: 20px;
+}
+
+.back {
+  background: #0a4e786d;
+  width: 22%;
+  height: 20%;
+  /* border-radius: 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 58% 43% 33% 64% / 50% 38% 53% 50%;
+  background: transparent;
+  box-shadow: inset 6px 33px 20px 0 #dde7ec19, inset 20px 80px 15px 0 #e0e0e0,
+    10px 20px 20px 0px #c9c9c9;
+}
+.back::before {
+  content: '';
+  position: absolute;
+  border-radius: 37% 54% 46% 46%;
+  background: white;
+  width: 50px;
+  transform: rotate(-30deg);
+  height: 15px;
+  top: 20px;
+  left: 20px;
+}
+
+.back::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  width: 10px;
+  height: 10px;
+  top: 60px;
+  left: 20px;
+}
+
+.var {
+  text-shadow: 2px 3px 2px rgba(79, 73, 73, 0.896);
+
+  color: white;
+
+  animation: headShake; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 6s; /* don't forget to set a duration! */
+}
+
+.availableUnits {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  text-shadow: none;
+  color: #a19c9c;
+
+  /* width: 16%;
+  height: 16%; */
+
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+.box {
+  width: 8px;
+  height: 8px;
+  padding: 5px;
+}
+
+.blue {
+  background: #0a4e787e;
+}
+
+.back {
+  background: #0a4e783a;
+}
+
+.red {
+  background: rgba(255, 0, 0, 0.505);
+}
+
+.orange {
+  background: rgba(255, 153, 0, 0.506);
+}
+
+.legend1,
+.legend2,
+.legend3 {
+  display: flex;
+  gap: 5px;
+  color: #a19c9c;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.meterPurchase {
+  position: absolute;
+  right: 80%;
+}
+
+/* .legend {
+  position: relative;
+  left: 40%;
+} */
+
 /* begining of media query . */
 
 @media (max-width: 720px) {
-  body {
-  }
+  /* body {
+  } */
   .form_container {
     width: 98%;
 
