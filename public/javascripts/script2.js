@@ -2,6 +2,7 @@ const powerPlacer = document.querySelector('.power')
 const voltagePlacer = document.querySelector('.voltage')
 const currentPlacer = document.querySelector('.current')
 const unitPlacer = document.querySelector('.availableUnits')
+const controlbtn = document.querySelector('.control')
 
 const cart = document.querySelector('.cart')
 const tooltip = document.querySelector('.label')
@@ -79,11 +80,17 @@ btn.addEventListener('click', () => {
     // write control channel on
     btn.textContent = 'on'
     sendControl('1')
+    // updateChannel('1')
+    // setTimeout(() => {
+    //   console.log('timeOut running')
+    //   controlbtn.disabled = true
+    // }, 10000)
   }
   if (btnState == 1) {
     //do something
     // write control channel off
     btn.textContent = 'off'
     sendControl('0')
+    // updateChannel('2')
   }
 })

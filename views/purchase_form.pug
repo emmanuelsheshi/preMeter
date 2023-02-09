@@ -2,10 +2,13 @@ extends layout
 block content    
     div.form_container                   
         form.form(action="/create-checkout-session2",method="POST")   
-            h1.formtitle Smart Meter 
+            h1.formtitle Smart Meter
+
+            a(href="/energyMonitor")
+                img.monitorImg.cart.var.animate__animated.animate__headShake.animate__infinite.animate__slow(src="images/monitor.png", alt="shopIcon" style="width:50px; height:50px;")
            
             div.smartComponent
-                img.cartImg(src="images/shop3.webp", alt="shopIcon" style="width:50px; height:50px;")
+                //- img.cartImg(src="images/shop3.webp", alt="shopIcon" style="width:50px; height:50px;")
                 span.units 7.5
                 span(style='padding-left:5px; font-size:small; margin-bottom:5px' )  units
             label Meter Number

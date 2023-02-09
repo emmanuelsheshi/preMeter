@@ -77,6 +77,15 @@ button:hover {
   color: #0a4e78;
 }
 
+.monitorImg {
+  position: absolute;
+  left: 8%;
+  top: 11%;
+}
+
+.units {
+}
+
 .cartImg {
   position: relative;
 }
