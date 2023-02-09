@@ -8,6 +8,19 @@ var router = express.Router()
 //harshgen
 var aesjs = require('aes-js')
 
+//thingspeak client
+var ThingSpeakClient = require('thingspeakclient')
+var thingClient = new ThingSpeakClient({ updateTimeout: 20000 })
+const channelId = 2021286
+thingClient.attachChannel(channelId, {
+  writeKey: 'R8OEY6N3F53WWTYC',
+  readKey: '0FI59AL4T0A4XF84',
+})
+
+function updateChannel(units) {
+  thingClient.updateChannel(channelId, { field1: units })
+}
+
 function harshGen(meterId, amount) {
   // An example 128-bit key (16 bytes * 8 bits/byte = 128 bits)
   //   var key = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
@@ -106,33 +119,30 @@ function sendMsg(id, units, time) {
     .catch((err) => console.log('message not sent beacuse of', err))
 }
 
-//send things speak
-async function sendFx(purchasedUnits) {
-  const rechargeTime = new Date()
-  let randomGen = Math.random(0, 1)
-  let randValue = parseFloat(purchasedUnits)
-  let ans = randValue + randomGen
-  console.log(randValue, purchasedUnits, randomGen)
-  console.log(typeof randomGen, ' -- ', ans)
-  let response = await fetch(
-    `https://api.thingspeak.com/update?api_key=R8OEY6N3F53WWTYC&field1=${randValue}&field2=${rechargeTime.toISOString()}`,
-  )
-  try {
-    let data = await response.text()
-    console.log(data)
-  } catch (err) {
-    console.log('an error occurred while sending to things speeak', err)
-  }
-}
-
 const url = require('url')
 const path = require('path')
 const { time } = require('console')
 
 /* GET home page. */
 router.use('/', function (req, res, next) {
-  // console.log(req.url, '00000000000000000009999999')
-  // console.log(url.parse(req.url), true)
+  //send things speak
+  // async function sendFx(purchasedUnits) {
+  //   const rechargeTime = new Date()
+  //   let randomGen = Math.random(0, 1)
+  //   let randValue = parseFloat(purchasedUnits)
+  //   let ans = randValue + randomGen
+  //   console.log(randValue, purchasedUnits, randomGen)
+  //   console.log(typeof randomGen, ' -- ', ans)
+  //   let response = await fetch(
+  //     `https://api.thingspeak.com/update?api_key=R8OEY6N3F53WWTYC&field1=${randValue}&field2=${rechargeTime.toISOString()}`,
+  //   )
+  //   try {
+  //     let data = await response.text()
+  //     console.log(data)
+  //   } catch (err) {
+  //     console.log('an error occurred while sending to things speeak', err)
+  //   }
+  // }
 
   const { query, pathName } = url.parse(req.url, true)
   const meterId = query.meterId
@@ -151,7 +161,8 @@ router.use('/', function (req, res, next) {
   console.log('sent message - ')
   //send harsh to phone number here
   // sendMsg(meterId, amount, today.toUTCString())
-  sendFx(units)
+  // sendFx(units)
+  updateChannel(units)
 
   console.log(result2)
   console.log('sucessfull purchase')
