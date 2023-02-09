@@ -3,11 +3,14 @@ block content
     div.form_container                   
         div.form  
             
-            h1.formtitle Energy Monitor   
-            a(href="/purchase")                
-                img.meterPurchase.back.var.animate__animated.animate__headShake.animate__infinite.animate__slow(src="images/pay.png", alt="buy units" style="width:50px; height:50px;")     
-
-             
+            h1.formtitle Energy Monitor
+                      
+            div.meterPurchase
+                a(href="/purchase")                    
+                    img.cart.var.animate__animated.animate__headShake.animate__infinite.animate__slow(src="images/cart.png", alt="buy units" style="width:50px; height:50px;") 
+                label.label purchase units
+                
+            
             label.meterNumber Meter ID : 2021286
 
             div.voltage.var #{voltage}

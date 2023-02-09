@@ -3,7 +3,15 @@ const voltagePlacer = document.querySelector('.voltage')
 const currentPlacer = document.querySelector('.current')
 const unitPlacer = document.querySelector('.availableUnits')
 
-console.log(powerPlacer)
+const cart = document.querySelector('.cart')
+const tooltip = document.querySelector('.label')
+
+cart.addEventListener('mouseover', () => {
+  tooltip.style.visibility = 'visible'
+})
+cart.addEventListener('mouseout', () => {
+  tooltip.style.visibility = 'hidden'
+})
 
 async function sendControl(controlVal) {
   let response = await fetch(
