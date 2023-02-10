@@ -80,11 +80,6 @@ btn.addEventListener('click', () => {
     // write control channel on
     btn.textContent = 'on'
     sendControl('1')
-    // updateChannel('1')
-    // setTimeout(() => {
-    //   console.log('timeOut running')
-    //   controlbtn.disabled = true
-    // }, 10000)
   }
   if (btnState == 1) {
     //do something
